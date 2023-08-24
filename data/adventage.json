@@ -1,0 +1,38 @@
+[
+    {
+        "id" : 1,
+        "start" : 4,
+        "advantage" : "NEXT JS",
+        "color" : "default"
+    },
+    {
+        "id" : 2,
+        "start" : 4,
+        "advantage" : "REACT JS",
+        "color" : "primary"
+    },
+    {
+        "id" : 3,
+        "start" : 5,
+        "advantage" : "LARAVEL",
+        "color" : "success"
+    },
+    {
+        "id" : 4,
+        "start" : 5,
+        "advantage" : "NODE JS",
+        "color": "warning"
+    },
+    {
+        "id" : 5,
+        "start" : 4,
+        "advantage" : "TYPESCRIPT",
+        "color" : "default"    
+    },
+    {
+        "id" : 6,
+        "start" : 5,
+        "advantage" : "PHP",
+        "color" : "info"
+    }
+]

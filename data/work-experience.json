@@ -1,0 +1,23 @@
+[
+    {
+        "id" : 1,
+        "company" : "PT MANGDROPSHIP",
+        "alamat" : "Indonesia, Jawa Timur Kab.Malang",
+        "position" : "Fullstack Developer",
+        "range" : "2023"
+    },
+    {
+        "id" : 2,
+        "company" : "PT DIAN PRIMA JAYA RAYA",
+        "alamat" : "Jakarta",
+        "position" : "Back End Developer",
+        "range" : "2022-2023"
+    },
+    {
+        "id" : 3,
+        "company" : "PT Horus Technology Indonesia",
+        "alamat" : "Yogyakarta",
+        "position" : "Fullstack Developer",
+        "range" : "2020-2022"
+    }
+]

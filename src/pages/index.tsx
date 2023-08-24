@@ -1,11 +1,41 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import Navbar from '@/Component/Navbar'
+import React from 'react';
+import { Container, Row } from 'react-bootstrap';
+import { LayoutContextModeConfig } from '../../layout/layoutContext';
+import { Button } from 'primereact/button';
+import { AnimationSlideInShow } from '@/Animation/AnimationContext';
+import OtherAbilities from '@/Component/OtherAbilities';
+import Advantage from '@/Component/Advantage';
+import MyService from '@/Component/Service';
+import Footer from '@/Component/Footer';
+import { configSlideInShow } from '@/Animation/config';
+import ContactUse from '@/Component/ContactUse';
+import Project from '@/Component/Project';
+import WorkExperince from '@/Component/WorkExperience';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
+  const { layoutMode } = React.useContext(LayoutContextModeConfig);
+  const [fixedNav, setFixedNav] = React.useState(false);
+  React.useEffect(() => {
+    document.addEventListener('scroll', (event) => {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        setFixedNav(true)
+      } else {
+        setFixedNav(false)
+      }
+    })
+  }, [fixedNav]);
+
+  const handleClick = () =>{
+    const createElementA = document.createElement('a');
+    createElementA.href = 'https://github.com/AldoDeveloper?tab=repositories';
+    createElementA.target = '__blank';
+    createElementA.click();
+  }
   return (
     <>
       <Head>
@@ -14,101 +44,71 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
+      <Navbar />
+      <div id={fixedNav ? `fixed-navbar-on` : 'fixed-navbar-off'}>
+        <Navbar />
+      </div>
+      <div className="app-pages">
+        <div className={layoutMode?.theme === "dark" ? 'static-inner-dark' : 'static-inner-light'}>
+          <Container fluid="md">
+            <section className="static-banner">
+              <Row style={{ width: '100%' }} className="justify-content-center">
+                <div className="col-md-6 col-lg-6 col-xl-6 align-self-center mb-3">
+                  <AnimationSlideInShow id={'ansfa'} config={configSlideInShow}>
+                    <div className="slide-title">
+                      <h2><span>Hello,</span> I Am Aldo</h2>
+                      <h4>Im Fullstack Developer</h4>
+                      <p>I am Aldo Ratmawan, I am a professional fulstack developer, since high school
+                        I can work in the field of Backend Developer and Frontend Developer, which includes Nestjs, Nextjs, ReactJs, Laravel and Java Springboot</p>
+                      <div className="btn-title">
+                        <Button
+                          onClick={handleClick}
+                          className='btn-title'
+                          rounded
+                          size='small'
+                          severity='success'
+                          label='Hire Me Github'
+                          iconPos='right'
+                          icon={'pi pi-github'} />
+                      </div>
+                    </div>
+                  </AnimationSlideInShow>
+                </div>
+                <div className="col-md-6 col-lg-6 col-xl-6">
+                  <div className="static-image p-0">
+                    <img
+                      src={'/assets/image/my-foto.png'}
+                      height={'400px'}
+                      className='d-block mx-auto rounded-circle my-img-profile' />
+                  </div>
+                </div>
+              </Row>
+            </section>
+          </Container>
+          <Container id='project' fluid="md" style={{ marginTop: '150px' }}>
+            <Project />
+          </Container>
+          <Container id='service' fluid="md" style={{ marginTop: '150px' }}>
+            <MyService />
+          </Container>
+          <Container id='advantage' fluid="md" style={{ marginTop: '150px' }}>
+            <Advantage />
+          </Container>
+          <Container id='exp' fluid="md" style={{ marginTop: '150px' }}>
+            <WorkExperince />
+          </Container>
+          <Container id='abilities' fluid="md" style={{ marginTop: '150px' }}>
+            <OtherAbilities />
+          </Container>
+          <Container id='contact' fluid="md" style={{ marginTop: '150px' }} className='mb-5'>
+            <ContactUse />
+          </Container>
         </div>
-
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+        <Footer />
+      </div>
     </>
   )
 }
+Home.getLayoutIndex = function (page: any) {
+  return page;
+} 
