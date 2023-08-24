@@ -17,7 +17,7 @@ export default function Navbars() {
              const urlResume = await resumeUrlData(firebaseApp?.appFirestore, 'CV.pdf');
              setUrlResume(urlResume)
         })();
-    });
+    }, []);
 
     const handleClick = () =>{
         const createElementA  = document.createElement('a');

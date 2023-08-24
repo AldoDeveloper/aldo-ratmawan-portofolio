@@ -149,7 +149,7 @@ export default function Project() {
                 </Modal.Footer>
             </Modal>
             <h1 className="text-center fw-bold">MY PROJECT</h1>
-            <section className="static-bannes">6648684684668464
+            <section className="static-bannes">
                 {!loading && <SkeltonProject count={2} />}
                 {loading && (
                     <Carousel

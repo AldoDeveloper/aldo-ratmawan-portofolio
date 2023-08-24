@@ -30,7 +30,7 @@ export default function ContactUse() {
             });
             setDataContact(dataProm)
         })();
-    });
+    }, []);
 
     const TypeUseContact = ({ dataObj, values }: PropsTypeContact): React.ReactNode => {
         switch (dataObj?.slughData) {

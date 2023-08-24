@@ -45,8 +45,10 @@ export default function OtherAbilities() {
       })
     });
   }
-  React.useEffect(() => configFirebaseData());
-  
+  React.useEffect(() => {
+    configFirebaseData()
+  }, []);
+
   const productTemplate = (product: otherAbilitiesProps) => {
     return (
       <Card className='me-3'>
