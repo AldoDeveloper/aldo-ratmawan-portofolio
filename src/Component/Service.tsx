@@ -59,7 +59,7 @@ export default function MyService() {
                             ))
                         }
                     </div>
-                    <Row className='w-full justify-content-start'>
+                    <Row className='justify-content-center'>
                         { loading && <SkeltonService count={6} />}
                         { !loading && (
                             <>

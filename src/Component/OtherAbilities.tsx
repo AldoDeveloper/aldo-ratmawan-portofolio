@@ -80,7 +80,7 @@ export default function OtherAbilities() {
   return (
     <React.Fragment>
       <h1 className='fw-bold text-center'>Other abilities</h1>
-      <section className="static-banner">
+      <section className="static-banners">
         <Container>
           <Carousel value={otherAbilities}
             numVisible={4}
