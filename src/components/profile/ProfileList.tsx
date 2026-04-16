@@ -97,7 +97,7 @@ export const ProfileList: React.FC = () => {
     setShowActionMenu(null);
   };
 
-  const columns: Column<ProfileResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "full_name",
       label: "Name",

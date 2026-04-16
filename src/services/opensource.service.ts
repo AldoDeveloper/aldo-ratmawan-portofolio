@@ -1,4 +1,4 @@
-import { OpenSourceRequest, OpenSourceResponse, OpenSourceListResponse, OpenSourceCreateResponse, OpenSourceUpdateResponse, OpenSourceDeleteResponse, OpenSourceDetailResponse } from "@/types/opensource.api";
+import { OpenSourceRequest, OpenSourceResponse, OpenSourceListResponse, OpenSourceCreateResponse, OpenSourceUpdateResponse, OpenSourceDeleteResponse, OpenSourceDetailResponse } from "types/opensource.api";
 
 const API_BASE = '/api/open-sources';
 

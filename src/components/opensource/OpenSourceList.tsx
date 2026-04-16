@@ -96,7 +96,7 @@ export const OpenSourceList: React.FC = () => {
     setShowActionMenu(null);
   };
 
-  const columns: Column<OpenSourceResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "project_name",
       label: "Project",

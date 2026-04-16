@@ -53,7 +53,7 @@ export const ExperienceList: React.FC = () => {
     setShowActionMenu(null);
   };
 
-  const columns: Column<ExperienceResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "company_name", label: "Company", className: "min-w-[200px]", sortable: true,
       render: (_value, row) => (

@@ -7,7 +7,7 @@ import {
     ArticleUpdateResponse,
     ArticleDeleteResponse,
     ArticleResponse
-} from "@/types/article.api";
+} from "../../../../types/article.api";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const method = req.method;

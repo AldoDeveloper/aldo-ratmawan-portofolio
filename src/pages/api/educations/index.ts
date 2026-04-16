@@ -7,7 +7,7 @@ import {
     EducationUpdateResponse,
     EducationDeleteResponse,
     EducationResponse
-} from "@/types/education.api";
+} from "../../../../types/education.api";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const method = req.method;

@@ -1,4 +1,4 @@
-import { ContactRequest, ContactResponse, ContactListResponse, ContactCreateResponse, ContactUpdateResponse, ContactDeleteResponse, ContactDetailResponse } from "@/types/contact.api";
+import { ContactRequest, ContactResponse, ContactListResponse, ContactCreateResponse, ContactUpdateResponse, ContactDeleteResponse, ContactDetailResponse } from "types/contact.api";
 
 const API_BASE = '/api/contacts';
 

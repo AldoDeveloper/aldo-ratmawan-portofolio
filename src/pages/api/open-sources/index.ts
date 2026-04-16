@@ -7,7 +7,7 @@ import {
     OpenSourceUpdateResponse,
     OpenSourceDeleteResponse,
     OpenSourceResponse
-} from "@/types/opensource.api";
+} from "../../../../types/opensource.api";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const method = req.method;

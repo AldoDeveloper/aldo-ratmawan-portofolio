@@ -1,4 +1,4 @@
-import { CertificationRequest, CertificationResponse, CertificationListResponse, CertificationCreateResponse, CertificationUpdateResponse, CertificationDeleteResponse, CertificationDetailResponse } from "@/types/certification.api";
+import { CertificationRequest, CertificationResponse, CertificationListResponse, CertificationCreateResponse, CertificationUpdateResponse, CertificationDeleteResponse, CertificationDetailResponse } from "types/certification.api";
 
 const API_BASE = '/api/certifications';
 

@@ -1,4 +1,4 @@
-import { ExperienceRequest, ExperienceResponse, ExperienceListResponse, ExperienceCreateResponse, ExperienceUpdateResponse, ExperienceDeleteResponse, ExperienceDetailResponse } from "@/types/experience.api";
+import { ExperienceRequest, ExperienceResponse, ExperienceListResponse, ExperienceCreateResponse, ExperienceUpdateResponse, ExperienceDeleteResponse, ExperienceDetailResponse } from "types/experience.api";
 
 const API_BASE = '/api/experiences';
 

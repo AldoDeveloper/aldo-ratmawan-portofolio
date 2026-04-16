@@ -1,4 +1,4 @@
-import { ServiceRequest, ServiceResponse, ServiceListResponse, ServiceCreateResponse, ServiceUpdateResponse, ServiceDeleteResponse, ServiceDetailResponse } from "@/types/service.api";
+import { ServiceRequest, ServiceResponse, ServiceListResponse, ServiceCreateResponse, ServiceUpdateResponse, ServiceDeleteResponse, ServiceDetailResponse } from "types/service.api";
 
 const API_BASE = '/api/services';
 

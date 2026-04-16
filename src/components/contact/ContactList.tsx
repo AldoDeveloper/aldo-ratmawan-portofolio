@@ -94,7 +94,7 @@ export const ContactList: React.FC = () => {
     setShowActionMenu(null);
   };
 
-  const columns: Column<ContactResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "type",
       label: "Type",

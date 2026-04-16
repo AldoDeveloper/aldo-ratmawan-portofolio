@@ -111,7 +111,7 @@ export const ExpertiseList: React.FC = () => {
     setShowActionMenu(null);
   };
 
-  const columns: Column<ExpertiseResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "title",
       label: "Title",

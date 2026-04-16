@@ -5,6 +5,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { Skeletons } from "../ui/Skelton";
 import Skeleton from "react-loading-skeleton";
+import Image from "next/image";
 
 
 export interface UserProfile {
@@ -116,9 +117,10 @@ export const HeroSection: React.FC = () => {
                         </>
                     ) : (
                         <>
-                            <img
+                            <Image
+                                alt="foto me"
                                 src={'/assets/image/my-foto.png'}
-                                height={'300px'}
+                                height={300}
                                 className='d-block mx-auto rounded-full' />
                         </>
                     )

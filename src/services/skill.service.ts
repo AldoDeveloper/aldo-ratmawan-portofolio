@@ -1,4 +1,4 @@
-import { SkillRequest, SkillResponse, SkillListResponse, SkillCreateResponse, SkillUpdateResponse, SkillDeleteResponse, SkillDetailResponse } from "@/types/skill.api";
+import { SkillRequest, SkillResponse, SkillListResponse, SkillCreateResponse, SkillUpdateResponse, SkillDeleteResponse, SkillDetailResponse } from "types/skill.api";
 
 const API_BASE = '/api/skills';
 

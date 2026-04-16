@@ -145,7 +145,7 @@ export const AchievementList: React.FC = () => {
     }
   };
 
-  const columns: Column<AchievementResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "title",
       label: "Achievement",
@@ -226,7 +226,7 @@ export const AchievementList: React.FC = () => {
             row.status || ""
           )}`}
         >
-          {row.status?.replace("-", " ").replace(/\b\w/g, (l) =>
+          {row.status?.replace("-", " ").replace(/\b\w/g, (l: any) =>
             l.toUpperCase()
           )}
         </span>

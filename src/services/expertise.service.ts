@@ -6,7 +6,7 @@ import {
     ExpertiseUpdateResponse, 
     ExpertiseDeleteResponse, 
     ExpertiseDetailResponse 
-} from "@/types/expertise.api";
+} from "types/expertise.api";
 
 const API_BASE = '/api/expertise';
 

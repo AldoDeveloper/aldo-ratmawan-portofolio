@@ -1,4 +1,4 @@
-import { ArticleRequest, ArticleResponse, ArticleListResponse, ArticleCreateResponse, ArticleUpdateResponse, ArticleDeleteResponse, ArticleDetailResponse } from "@/types/article.api";
+import { ArticleRequest, ArticleResponse, ArticleListResponse, ArticleCreateResponse, ArticleUpdateResponse, ArticleDeleteResponse, ArticleDetailResponse } from "types/article.api";
 
 const API_BASE = '/api/articles';
 

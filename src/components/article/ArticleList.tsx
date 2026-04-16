@@ -118,7 +118,7 @@ export const ArticleList: React.FC = () => {
     return "bg-gray-100 text-gray-700 border border-gray-200";
   };
 
-  const columns: Column<ArticleResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "title",
       label: "Title",

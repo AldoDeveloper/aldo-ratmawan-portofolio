@@ -95,7 +95,7 @@ export const CertificationList: React.FC = () => {
     setShowActionMenu(null);
   };
 
-  const columns: Column<CertificationResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "name",
       label: "Certification",

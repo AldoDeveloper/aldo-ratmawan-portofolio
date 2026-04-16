@@ -7,7 +7,7 @@ import {
     CertificationUpdateResponse,
     CertificationDeleteResponse,
     CertificationResponse
-} from "@/types/certification.api";
+} from "../../../../types/certification.api";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const method = req.method;

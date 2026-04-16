@@ -1,4 +1,4 @@
-import { ProjectRequest, ProjectResponse, ProjectListResponse, ProjectCreateResponse, ProjectUpdateResponse, ProjectDeleteResponse, ProjectDetailResponse } from "@/types/project.api";
+import { ProjectRequest, ProjectResponse, ProjectListResponse, ProjectCreateResponse, ProjectUpdateResponse, ProjectDeleteResponse, ProjectDetailResponse } from "types/project.api";
 
 const API_BASE = '/api/projects';
 

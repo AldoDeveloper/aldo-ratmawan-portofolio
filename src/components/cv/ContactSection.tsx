@@ -101,7 +101,7 @@ export const ContactSection: React.FC = () => {
 
             {/* body alert */}
             <div className="px-4 pb-4 pt-2 text-red-500">
-                🚀 {error}
+                {error}
             </div>
         </div>
     )
@@ -114,7 +114,7 @@ export const ContactSection: React.FC = () => {
                         Get In <span className="text-blue-500">Touch</span>
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400 text-lg">
-                        Let's discuss your next project or just say hello
+                        {"Let's discuss your next project or just say hello"}
                     </p>
                 </div>
                 {

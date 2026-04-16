@@ -7,7 +7,7 @@ import {
     ExpertiseUpdateResponse,
     ExpertiseDeleteResponse,
     ExpertiseResponse
-} from "@/types/expertise.api";
+} from "../../../../types/expertise.api";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const method = req.method;

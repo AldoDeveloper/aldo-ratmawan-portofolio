@@ -96,7 +96,7 @@ export const EducationList: React.FC = () => {
     setShowActionMenu(null);
   };
 
-  const columns: Column<EducationResponse>[] = [
+  const columns: Column<any>[] = [
     {
       key: "institution_name",
       label: "Institution",

@@ -1,4 +1,4 @@
-import { EducationRequest, EducationResponse, EducationListResponse, EducationCreateResponse, EducationUpdateResponse, EducationDeleteResponse, EducationDetailResponse } from "@/types/education.api";
+import { EducationRequest, EducationResponse, EducationListResponse, EducationCreateResponse, EducationUpdateResponse, EducationDeleteResponse, EducationDetailResponse } from "types/education.api";
 
 const API_BASE = '/api/educations';
 

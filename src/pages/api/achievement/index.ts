@@ -7,7 +7,7 @@ import {
     AchievementUpdateResponse,
     AchievementDeleteResponse,
     AchievementResponse
-} from "@/types/achievement.api";
+} from "../../../../types/achievement.api"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const method = req.method;

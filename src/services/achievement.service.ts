@@ -1,4 +1,4 @@
-import { AchievementRequest, AchievementResponse, AchievementListResponse, AchievementCreateResponse, AchievementUpdateResponse, AchievementDeleteResponse, AchievementDetailResponse } from "@/types/achievement.api";
+import { AchievementRequest, AchievementResponse, AchievementListResponse, AchievementCreateResponse, AchievementUpdateResponse, AchievementDeleteResponse, AchievementDetailResponse } from "types/achievement.api"
 
 const API_BASE = '/api/achievement';
 

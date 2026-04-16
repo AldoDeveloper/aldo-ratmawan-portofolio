@@ -1,4 +1,4 @@
-import { ProfileRequest, ProfileResponse, ProfileListResponse, ProfileCreateResponse, ProfileUpdateResponse, ProfileDeleteResponse, ProfileDetailResponse } from "@/types/profile.api";
+import { ProfileRequest, ProfileResponse, ProfileListResponse, ProfileCreateResponse, ProfileUpdateResponse, ProfileDeleteResponse, ProfileDetailResponse } from "types/profile.api";
 
 const API_BASE = '/api/profile';
 
