@@ -17,11 +17,9 @@ type AppLayout = AppProps & {
 export default function App({ Component, pageProps }: AppLayout) {
   if (Component.getLayoutIndex) {
     return (
-      <ErrorBoundary>
-         <LayoutCv>
-           {Component.getLayoutIndex(<Component {...pageProps} />)}
-         </LayoutCv>
-      </ErrorBoundary>
+      <LayoutCv>
+        {Component.getLayoutIndex(<Component {...pageProps} />)}
+      </LayoutCv>
     )
   }
 
