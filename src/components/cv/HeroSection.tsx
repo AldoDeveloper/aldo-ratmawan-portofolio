@@ -6,7 +6,6 @@ import Skeleton from "react-loading-skeleton";
 import Image from "next/image";
 import { LayoutDashboardContext } from "../../../context/ContextApp";
 
-
 export interface UserProfile {
     id: string;
     full_name: string;
@@ -31,7 +30,6 @@ export const HeroSection: React.FC = () => {
 
     const { theme } = useContext(LayoutDashboardContext);
 
-
     const getProfile = async () => {
         try {
             const res = await fetch('/api/profiles/f1a2b3c4-1234-5678-9101-abcdefabcdef');
@@ -52,7 +50,8 @@ export const HeroSection: React.FC = () => {
         getProfile();
     }, []);
 
-
+    // render Section
+    
     return (
         <section className="flex flex-col-reverse mt-20 md:mt-0 py-2 md:flex-row justify-center gap-6 bg-gray-50 dark:bg-gray-950 min-h-svh items-center">
             <div className="w-full md:basis-1/2 md:mr-6">
