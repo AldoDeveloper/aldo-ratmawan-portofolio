@@ -52,8 +52,8 @@ export const ProjectSection: React.FC = () => {
     const { data, loading, error } = useFetchJson<ProjectListResponse>('/api/projects'); // Replace with your actual API endpoint
 
     return (
-        <section id="projects" className="py-20 px-6 bg-gray-100 dark:bg-gray-900">
-            <div className="container mx-auto">
+        <section id="projects" className="py-20 bg-gray-100 dark:bg-gray-900">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
                         Featured <span className="text-blue-500">Projects</span>

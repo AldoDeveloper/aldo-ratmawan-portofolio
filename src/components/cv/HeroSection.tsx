@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { Skeletons } from "../ui/Skelton";
 import Skeleton from "react-loading-skeleton";
 import Image from "next/image";
+import { LayoutDashboardContext } from "../../../context/ContextApp";
 
 
 export interface UserProfile {
@@ -28,6 +29,9 @@ export const HeroSection: React.FC = () => {
     const [err, setErr] = useState<string | null>(null);
     const [profile, setProfile] = useState<UserProfile | null>(null);
 
+    const { theme } = useContext(LayoutDashboardContext);
+
+
     const getProfile = async () => {
         try {
             const res = await fetch('/api/profiles/f1a2b3c4-1234-5678-9101-abcdefabcdef');
@@ -50,60 +54,75 @@ export const HeroSection: React.FC = () => {
 
 
     return (
-        <section className="flex flex-row justify-center gap-6 bg-gray-50 dark:bg-gray-950 min-h-svh items-center">
-            <div className="basis-1/2 mr-6">
-                <div className="space-y-4">
-                    {/* <h2 className="text-gray-900"><span>Hello,</span> I Am Aldo</h2> */}
+        <section className="flex flex-col-reverse mt-20 md:mt-0 py-2 md:flex-row justify-center gap-6 bg-gray-50 dark:bg-gray-950 min-h-svh items-center">
+            <div className="w-full md:basis-1/2 md:mr-6">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
                     {
                         isLoading ? (
-                            <>
+                            <div>
                                 <Skeletons>
-                                    <Skeleton count={1} width={"100%"} height={60} className="mb-2" />
-                                    <Skeleton count={1} width={"70%"} height={40} className="mb-2" />
-                                    <Skeleton count={5} width={"90%"} height={28} className="mb-2" />
+                                    <Skeleton count={1} width={"100%"} height={50} className="mb-2" />
+                                    <Skeleton count={1} width={"70%"} height={35} className="mb-2" />
+                                    <Skeleton count={4} width={"100%"} height={24} className="mb-2" />
                                 </Skeletons>
-                                <div className='flex items-center space-x-4'>
+
+                                <div className="flex flex-col sm:flex-row gap-3">
                                     <Skeletons>
-                                        <Skeleton count={1} width={120} height={45} className="mt-3" />
-                                        <Skeleton count={1} width={150} height={45} className="mt-3" />
+                                        <Skeleton width={120} height={45} />
+                                        <Skeleton width={150} height={45} />
                                     </Skeletons>
                                 </div>
-                            </>
+                            </div>
                         ) : (
                             <>
-                                <div className="text-gray-900 space-y-3">
-                                    {/* <h1 className="text-8xl font-bold text-yellow-500">Hello</h1> */}
-                                    <h1 className="space-x-3">
-                                        <span className="text-7xl text-blue-500 font-semibold">I Am</span>
-                                        <span className="text-6xl font-extrabold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">{profile?.full_name}</span>
+                                {/* Title */}
+                                <div className="text-gray-900 space-y-2">
+                                    <h1 className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3 text-center md:text-left">
+                                        <span className="text-4xl sm:text-5xl md:text-6xl text-blue-500 font-semibold">
+                                            I Am
+                                        </span>
+                                        <span className="text-3xl sm:text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
+                                            {profile?.full_name}
+                                        </span>
                                     </h1>
                                 </div>
 
-                                <h4 className='text-gray-600 dark:text-gray-100 font-semibold text-2xl'>{profile?.headline}</h4>
-                                <p className="text-gray-900 dark:text-gray-100 text-xl">
+                                {/* Headline */}
+                                <h4 className="text-center md:text-left text-gray-600 dark:text-gray-100 font-semibold text-lg sm:text-xl md:text-2xl">
+                                    {profile?.headline}
+                                </h4>
+
+                                {/* Bio */}
+                                <p className="text-justify md:text-left px-2 text-gray-900 dark:text-gray-100 text-base sm:text-lg md:text-xl leading-relaxed">
                                     {profile?.bio}
                                 </p>
-                                <div className='flex items-center space-x-4'>
-                                    <button className="bg-gradient-to-r transition-all transform hover:scale-105 text-gray-100 dark:text-gray-800 from-cyan-500 to-blue-500 px-2 py-3 rounded-lg shadow w-[10rem] mt-3">
-                                        <div className="flex justify-center items-center space-x-3">
-                                            <FaGithub size={22} />
-                                            <span className="font-semibold text-[17px]">Github</span>
+
+                                {/* Buttons */}
+                                <div className="flex flex-row px-3 gap-2 md:gap-3 justify-center md:justify-start items-center">
+
+                                    <button className="w-full sm:w-[10rem] bg-gradient-to-r from-cyan-500 to-blue-500 text-white dark:text-gray-800 px-3 py-3 rounded-lg shadow transition-all transform hover:scale-105">
+                                        <div className="flex justify-center items-center gap-2">
+                                            <FaGithub size={20} />
+                                            <span className="font-semibold text-sm sm:text-base">Github</span>
                                         </div>
                                     </button>
-                                    <button className="bg-gradient-to-r transition-all transform hover:scale-105 text-gray-100 dark:text-gray-800 from-cyan-500 to-blue-500 px-2 py-3 rounded-lg shadow w-[13rem] mt-3">
-                                        <div className="flex justify-center items-center space-x-3">
-                                            <FaChevronRight size={20} />
-                                            <span className="font-semibold text-[17px]">Get In Touch</span>
+
+                                    <button className="w-full sm:w-[13rem] bg-gradient-to-r from-cyan-500 to-blue-500 text-white dark:text-gray-800 px-3 py-3 rounded-lg shadow transition-all transform hover:scale-105">
+                                        <div className="flex justify-center items-center gap-2">
+                                            <FaChevronRight size={18} />
+                                            <span className="font-semibold text-sm sm:text-base">
+                                                Get In Touch
+                                            </span>
                                         </div>
                                     </button>
+
                                 </div>
                             </>
                         )
                     }
                 </div>
             </div>
-
-            <div className="avatar">
+            <div className={theme == 'dark' ? `avatar` : ""}>
                 {
                     isLoading ? (
                         <>
@@ -116,8 +135,9 @@ export const HeroSection: React.FC = () => {
                             <Image
                                 alt="foto me"
                                 src={'/assets/image/my-foto.png'}
-                                height={300}
-                                className='d-block mx-auto rounded-full' />
+                                width={`400`}
+                                height={400}
+                                className='d-block max-w-[300px] md:max-w-[400px] mx-auto rounded-full' />
                         </>
                     )
                 }

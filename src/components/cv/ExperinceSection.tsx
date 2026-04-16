@@ -55,7 +55,7 @@ export const ExperienceSection: React.FC = () => {
 
     return (
         <section id="experience" className="py-20 px-6 bg-gray-100 dark:bg-gray-900">
-            <div className="container mx-auto">
+            <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-4">
                         Work <span className="text-yellow-500">Experience</span>

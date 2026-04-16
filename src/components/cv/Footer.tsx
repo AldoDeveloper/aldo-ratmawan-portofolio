@@ -4,13 +4,13 @@ import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
 export const Footer: React.FC = () => {
     return (
         <footer className="bg-gray-800 dark:bg-gray-950 text-white py-12 px-6">
-            <div className="container mx-auto">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div>
                         <h3 className="text-2xl font-bold bg-gradient-to-r from-yellow-500 to-blue-500 bg-clip-text text-transparent mb-2">
                             Aldo Ratmawan
                         </h3>
-                        <p className="text-gray-400">Full-Stack Developer</p>
+                        <p className="text-gray-400 md:text-start text-center">Full-Stack Developer</p>
                     </div>
                     <div className="flex gap-6">
                         <a

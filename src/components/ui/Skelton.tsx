@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import  { SkeletonTheme } from 'react-loading-skeleton';
+import { LayoutDashboardContext } from '../../../context/ContextApp';
 
 export interface PropsSkeleton{
     children?: React.ReactNode;
@@ -8,8 +9,18 @@ export interface PropsSkeleton{
 }
 
 export const Skeletons : React.FC<PropsSkeleton> = ({ children, baseColor, highlightColor }) => {
+
+    const { theme } = useContext(LayoutDashboardContext);
+
+    const map_color : Record<string, any> = {
+        "dark" : ['#374151', '#4b5563'],
+        "light" : ['#e5e7eb', '#f3f4f6']
+    };
+
     return(
-        <SkeletonTheme baseColor={baseColor ?? '#374151'} highlightColor={highlightColor ?? '#4b5563'}>
+        <SkeletonTheme 
+            baseColor={map_color[theme as any][0]} 
+            highlightColor={map_color[theme as any][1]}>
             { children }
         </SkeletonTheme>
     )

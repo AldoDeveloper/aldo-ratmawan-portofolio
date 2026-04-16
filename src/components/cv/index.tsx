@@ -24,28 +24,30 @@ const CV: React.FC = () => {
 
     return (
         <React.Fragment>
-           <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
+            <div className='w-full overflow-x-hidden bg-gray-50 dark:bg-gray-950'>
+                <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
 
-            {/* Hero Section */}
-            <HeroSection/>
+                {/* Hero Section */}
+                <HeroSection />
 
-            {/* Projects Section */}
-            <ProjectSection/>
-            
-            {/* Services Section */}
-            <ServiceSection/>
+                {/* Projects Section */}
+                <ProjectSection />
 
-            {/* Skills Section */}
-            <SkillsSection/>
+                {/* Services Section */}
+                <ServiceSection />
 
-            {/* Experience Section */}
-           <ExperienceSection/>
+                {/* Skills Section */}
+                <SkillsSection />
 
-            {/* Contact Section */}
-           <ContactSection/>
+                {/* Experience Section */}
+                <ExperienceSection />
 
-            {/* Footer */}
-            <Footer/>
+                {/* Contact Section */}
+                <ContactSection />
+
+                {/* Footer */}
+                <Footer />
+            </div>
         </React.Fragment>
     );
 };
