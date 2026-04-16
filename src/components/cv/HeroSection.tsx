@@ -1,5 +1,5 @@
-import { AnimationSlideInShow } from "@/animation/AnimationContext";
-import { configSlideInShow } from "@/animation/config";
+import { AnimationSlideInShow } from "../../animation/AnimationContext";
+import { configSlideInShow } from "../../animation/config";
 import React, { useEffect, useState } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
