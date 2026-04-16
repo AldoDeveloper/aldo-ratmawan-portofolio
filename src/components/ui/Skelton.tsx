@@ -19,8 +19,8 @@ export const Skeletons : React.FC<PropsSkeleton> = ({ children, baseColor, highl
 
     return(
         <SkeletonTheme 
-            baseColor={map_color[theme as any][0]} 
-            highlightColor={map_color[theme as any][1]}>
+            baseColor={map_color[theme as any ?? 'light'][0]} 
+            highlightColor={map_color[theme as any ?? 'light'][1]}>
             { children }
         </SkeletonTheme>
     )
