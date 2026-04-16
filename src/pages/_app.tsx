@@ -1,20 +1,14 @@
+import 'react-loading-skeleton/dist/skeleton.css'
+import '../styles/globals.css'
 import type { AppProps } from 'next/app';
 import { NextPageWithLayout } from '../../types/type';
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import "primereact/resources/themes/lara-light-indigo/theme.css";
-import "primereact/resources/primereact.min.css";
-import 'primeflex/primeflex.css';
-import 'primeicons/primeicons.css';
-import '../styles/globals.css';
-import { initializeApp } from 'firebase/app';
-import { LayoutProvider } from '../../layout/layoutContext';
-import { getFirestore } from 'firebase/firestore';
-import { configFirebaseFirestore } from '../../firebase/configFirebase';
-import { FirebaseContextProvider } from '../../context/ContextApp';
 import ErrorBoundary from '@/Error/ErrorBoundary';
-
-const firestoreData = getFirestore(initializeApp(configFirebaseFirestore));
+import { LayoutDashboard } from '../../layout/layout.dashboars';
+import { Sidebar } from '@/components/sidebar';
+import { Navbar } from '@/components/ui/NavbarDasboard';
+import { sidebarItems } from '../../const/sidebar.items.constans';
+import { LayoutCv } from '../../layout/layout.cv';
 
 type AppLayout = AppProps & {
   Component: NextPageWithLayout
@@ -24,18 +18,32 @@ export default function App({ Component, pageProps }: AppLayout) {
   if (Component.getLayoutIndex) {
     return (
       <ErrorBoundary>
-        <LayoutProvider>
-          <FirebaseContextProvider.Provider value={
-            {
-              appInitialize: firestoreData,
-              appFirestore: initializeApp(configFirebaseFirestore),
-              appStorage: initializeApp(configFirebaseFirestore)
-            }}>
-            {Component.getLayoutIndex(<Component {...pageProps} />)}
-          </FirebaseContextProvider.Provider>
-        </LayoutProvider>
+         <LayoutCv>
+           {Component.getLayoutIndex(<Component {...pageProps} />)}
+         </LayoutCv>
       </ErrorBoundary>
     )
   }
+
+  if (Component.getLayoutDashboard) {
+    return (
+      <ErrorBoundary>
+        <LayoutDashboard>
+          <Sidebar items={sidebarItems} />
+          <div className="flex-1 min-h-screen">
+            <div className="w-full">
+              <Navbar />
+              <div className='w-full px-3 py-4 h-[91svh] overflow-y-auto'>
+                <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+                  {Component.getLayoutDashboard(<Component {...pageProps} />)}
+                </div>
+              </div>
+            </div>
+          </div>
+        </LayoutDashboard>
+      </ErrorBoundary>
+    )
+  }
+
   return <Component {...pageProps} />
 } 

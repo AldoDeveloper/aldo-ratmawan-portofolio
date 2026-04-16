@@ -1,0 +1,48 @@
+
+Task 
+
+1. Buatkan UI Component Expertise buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+  dan untuk path nya adalah "expertise"
+  untuk body json nya adalah title, description saja 
+
+2. Buatkan UI Component Blog/Articles buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+  dan untuk path nya adalah "expertise"
+  untuk body json nya adalah title, slug, content_md, thumbnail_url, published
+
+3. Buatkan UI Component Certification buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+  dan untuk path nya adalah "certifications"
+  untuk body json nya adalah name, issuer, issue_date, credential_url, description
+
+4. Buatkan UI Component Contacts buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+  dan untuk path nya adalah "contacts"
+  untuk body json nya adalah type, url, label
+
+5. Buatkan UI Component Education buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+  dan untuk path nya adalah "educations"
+  untuk body json nya adalah institution_name, education_level ,major, star_date, end_date, is_current, grade, description
+
+6. Buatkan UI Component Experience buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+dan untuk path nya adalah "experiences"
+untuk body json nya adalah company_name, position, employment_type, location, is_remote, start_date, end_date, is_current, description
+
+7. Buatkan UI Component Opensource buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+dan untuk path nya adalah "open-sources"
+untuk body json nya adalah project_name, repo_url, description, starts
+
+8. Buatkan UI Component Profile buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+dan untuk path nya adalah "profile"
+untuk body json nya adalah full_name, username, email, headline, bio, avatar_url, resume_url, location, is_available, years_of_experience
+
+9. Buatkan UI Component Projects buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+dan untuk path nya adalah "projects"
+untuk body json nya adalah title, slug, description, thumbnail_url, demo_url, repo_urls
+
+10. Buatkan UI Component Services buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+dan untuk path nya adalah "services"
+untuk body json nya adalah title, description, prices
+
+11. Buatkan UI Component Skills buatkan metode pembuatan nya sama dengan Achievement, tambahkan validation nya menggunakan react-hook-form
+dan untuk path nya adalah "skills"
+untuk body json nya adalah name, category, level, description
+
+

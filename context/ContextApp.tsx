@@ -1,3 +1,15 @@
 import React from "react";
-import { AppFirebase } from "../types/type";
-export const FirebaseContextProvider = React.createContext<AppFirebase | null>(null);
+
+export interface IPropsLayoutDashboardContext{
+    theme ?: 'light' | 'dark',
+    isSidebarOpen?: boolean;
+    onToggleTheme?: () => void;
+    onToggleSidebar?: () => void;
+}   
+
+export const LayoutDashboardContext = React.createContext<IPropsLayoutDashboardContext>({
+    theme: 'light',
+    isSidebarOpen: false,
+    onToggleTheme: () => {},
+    onToggleSidebar: () => {}
+})

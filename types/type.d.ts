@@ -7,6 +7,7 @@ import { StorageReference} from 'firebase/storage'
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
     getLayoutIndex?: (page: ReactElement) => ReactNode;
+    getLayoutDashboard?: (page: ReactElement) => ReactNode;
 }
 
 export type LayoutConfig = {
@@ -123,4 +124,16 @@ export type PropsWorkExperience = {
 export type PropsGaleriaOptions = {
     description?: string;
     img_url?: string
+}
+
+export type Achievement = {
+    id?: string;
+    title: string;
+    description?: string;
+    issuer?: string;
+    date?: string;
+    certificateUrl?: string;
+    imageUrl?: string;
+    category?: string;
+    status?: 'verified' | 'pending' | 'in-progress';
 }
