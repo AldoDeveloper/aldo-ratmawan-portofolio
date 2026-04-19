@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { FaGithub, FaMoon, FaRegFilePdf, FaSun } from "react-icons/fa6";
+import { FaMoon, FaSun } from "react-icons/fa6";
 import { LayoutDashboardContext } from "../../../context/ContextApp";
 import { FaFilePdf } from "react-icons/fa";
 
@@ -30,7 +30,7 @@ export const Navbar: React.FC<{ activeSection: string; profile: any, scrollToSec
                     </div>
                     <div className="flex items-center space-x-3">
                         <a
-                            href={`${profile?.resume_url ?? "#"}`}
+                            href={`/assets/image/AldoRatmawanCv.pdf`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-all hover:scale-105"

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { Skeletons } from "../ui/Skelton";
@@ -24,7 +24,6 @@ export interface UserProfile {
 }
 
 export const HeroSection: React.FC<{profile: ProfileRequest, scrollSection: (path: string) => void }> = ({ profile, scrollSection }) => {
-
 
     const { theme } = useContext(LayoutDashboardContext);
 
