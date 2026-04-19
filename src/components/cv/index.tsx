@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { HeroSection } from './HeroSection';
 import { Navbar } from './Navbar';
 import { ProjectSection } from './ProjectSection';
@@ -8,8 +7,13 @@ import { ExperienceSection } from './ExperinceSection';
 import { ContactSection } from './ContactSection';
 import { Footer } from './Footer';
 import { ServiceSection } from './ServiceSection';
+import { ProfileDetailResponse, ProfileRequest } from 'types/profile.api';
 
-const CV: React.FC = () => {
+interface ArgsPageIndex{
+    profile?: ProfileDetailResponse
+}
+
+const CV: React.FC<ArgsPageIndex> = ({ profile }) => {
 
     const [activeSection, setActiveSection] = React.useState('home');
 
@@ -25,10 +29,16 @@ const CV: React.FC = () => {
     return (
         <React.Fragment>
             <div className='w-full overflow-x-hidden bg-gray-50 dark:bg-gray-950'>
-                <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
+                <Navbar 
+                    profile={profile?.data} 
+                    activeSection={activeSection} 
+                    scrollToSection={scrollToSection} />
 
                 {/* Hero Section */}
-                <HeroSection />
+                <HeroSection 
+                    scrollSection={scrollToSection} 
+                    profile={profile?.data as any}
+                />
 
                 {/* Projects Section */}
                 <ProjectSection />
@@ -46,7 +56,7 @@ const CV: React.FC = () => {
                 <ContactSection />
 
                 {/* Footer */}
-                <Footer />
+                <Footer profile={profile?.data as any}/>
             </div>
         </React.Fragment>
     );

@@ -5,6 +5,7 @@ import { Skeletons } from "../ui/Skelton";
 import Skeleton from "react-loading-skeleton";
 import Image from "next/image";
 import { LayoutDashboardContext } from "../../../context/ContextApp";
+import { ProfileRequest } from "types/profile.api";
 
 export interface UserProfile {
     id: string;
@@ -22,42 +23,21 @@ export interface UserProfile {
     updated_at: string; // bisa diubah ke Date jika diparse
 }
 
-export const HeroSection: React.FC = () => {
+export const HeroSection: React.FC<{profile: ProfileRequest, scrollSection: (path: string) => void }> = ({ profile, scrollSection }) => {
 
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    const [err, setErr] = useState<string | null>(null);
-    const [profile, setProfile] = useState<UserProfile | null>(null);
 
     const { theme } = useContext(LayoutDashboardContext);
 
-    const getProfile = async () => {
-        try {
-            const res = await fetch('/api/profiles/f1a2b3c4-1234-5678-9101-abcdefabcdef');
-            if (!res.ok) {
-                throw new Error('Failed to fetch profile data');
-            }
-            const { data } = await res.json();
-            setProfile(data);
-            // await new Promise(resolve => setTimeout(resolve, 5000));
-            setIsLoading(false);
-        } catch (err) {
-            setErr((err as Error).message);
-            setIsLoading(false);
-        }
+    const onClickUrlGithub = (ev: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        window.open('https://github.com/AldoDeveloper', '_blank')
     };
 
-    useEffect(() => {
-        getProfile();
-    }, []);
-
-    // render Section
-    
     return (
-        <section className="flex flex-col-reverse mt-20 md:mt-0 py-2 md:flex-row justify-center gap-6 bg-gray-50 dark:bg-gray-950 min-h-svh items-center">
+        <section id="home" className="flex flex-col-reverse mt-20 md:mt-0 py-2 md:flex-row justify-center gap-6 bg-gray-50 dark:bg-gray-950 min-h-svh items-center">
             <div className="w-full md:basis-1/2 md:mr-6">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
                     {
-                        isLoading ? (
+                        !profile ? (
                             <div>
                                 <Skeletons>
                                     <Skeleton count={1} width={"100%"} height={50} className="mb-2" />
@@ -99,14 +79,14 @@ export const HeroSection: React.FC = () => {
                                 {/* Buttons */}
                                 <div className="flex flex-row px-3 gap-2 md:gap-3 justify-center md:justify-start items-center">
 
-                                    <button className="w-full sm:w-[10rem] bg-gradient-to-r from-cyan-500 to-blue-500 text-white dark:text-gray-800 px-3 py-3 rounded-lg shadow transition-all transform hover:scale-105">
+                                    <button onClick={onClickUrlGithub} className="w-full sm:w-[10rem] bg-gradient-to-r from-cyan-500 to-blue-500 text-white dark:text-gray-800 px-3 py-3 rounded-lg shadow transition-all transform hover:scale-105">
                                         <div className="flex justify-center items-center gap-2">
                                             <FaGithub size={20} />
                                             <span className="font-semibold text-sm sm:text-base">Github</span>
                                         </div>
                                     </button>
 
-                                    <button className="w-full sm:w-[13rem] bg-gradient-to-r from-cyan-500 to-blue-500 text-white dark:text-gray-800 px-3 py-3 rounded-lg shadow transition-all transform hover:scale-105">
+                                    <button onClick={() => scrollSection('contact')} className="w-full sm:w-[13rem] bg-gradient-to-r from-cyan-500 to-blue-500 text-white dark:text-gray-800 px-3 py-3 rounded-lg shadow transition-all transform hover:scale-105">
                                         <div className="flex justify-center items-center gap-2">
                                             <FaChevronRight size={18} />
                                             <span className="font-semibold text-sm sm:text-base">
@@ -123,7 +103,7 @@ export const HeroSection: React.FC = () => {
             </div>
             <div className={theme == 'dark' ? `avatar` : ""}>
                 {
-                    isLoading ? (
+                    !profile ? (
                         <>
                             <Skeletons>
                                 <Skeleton circle={true} count={1} width={330} height={330} className="mx-auto" />

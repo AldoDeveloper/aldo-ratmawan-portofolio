@@ -1,16 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa6";
+import { ProfileRequest } from "types/profile.api";
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC<{ profile: ProfileRequest }> = ({ profile }) => {
+
     return (
         <footer className="bg-gray-800 dark:bg-gray-950 text-white py-12 px-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                     <div>
                         <h3 className="text-2xl font-bold bg-gradient-to-r from-yellow-500 to-blue-500 bg-clip-text text-transparent mb-2">
-                            Aldo Ratmawan
+                            { profile?.full_name }
                         </h3>
-                        <p className="text-gray-400 md:text-start text-center">Full-Stack Developer</p>
+                        <p className="text-gray-400 md:text-start text-center">{profile?.headline }</p>
                     </div>
                     <div className="flex gap-6">
                         <a

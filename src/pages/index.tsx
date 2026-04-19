@@ -2,11 +2,12 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import React from 'react';
 import CV from '@/components/cv';
+import { NextPageContext } from 'next';
+import { ProfileDetailResponse } from 'types/profile.api';
 
 export const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
-
+export default function Home({ profile } : {profile: ProfileDetailResponse }) {
   return (
     <>
       <Head>
@@ -16,10 +17,36 @@ export default function Home() {
         <link rel="icon" href="/assets/image/my-foto.png" />
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
       </Head>
-      <CV/>
+      <CV profile={profile}/>
     </>
   )
 }
+
+Home.getInitialProps = async(ctx: NextPageContext) => {
+
+  try{
+    
+    const baseApi  = process.env.BASE_API as string;
+    const username = process.env.AUTH_USERNAME as string;
+    const password = process.env.AUTH_PASSWORD as string;
+
+    const token = Buffer.from(`${username}:${password}`).toString('base64');
+    
+    const headers = new Headers();
+    headers.set('Authorization', `basic ${token}`);
+    const response = await fetch(`${baseApi}/profile/f1a2b3c4-1234-5678-9101-abcdefabcdef`, {
+      headers,
+    });
+
+    const profile = await response.json();
+    return { profile }
+
+  }catch(err){
+    console.log(err);
+    return err;
+  }
+}
+
 Home.getLayoutIndex = function (page: any) {
   return page;
 } 

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { FaGithub, FaMoon, FaSun } from "react-icons/fa6";
 import { LayoutDashboardContext } from "../../../context/ContextApp";
 
-export const Navbar: React.FC<{ activeSection: string; scrollToSection: (activeSection: string) => void }> = ({ activeSection, scrollToSection }) => {
+export const Navbar: React.FC<{ activeSection: string; profile: any, scrollToSection: (activeSection: string) => void }> = ({ activeSection, scrollToSection, profile}) => {
     
     const { onToggleTheme, theme } = useContext(LayoutDashboardContext);
     
@@ -29,12 +29,15 @@ export const Navbar: React.FC<{ activeSection: string; scrollToSection: (activeS
                     </div>
                     <div className="flex items-center space-x-3">
                         <a
-                            href="https://github.com/AldoDeveloper"
+                            href={`${profile?.resume_url ?? "#"}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white px-6 py-2 rounded-lg shadow-md hover:shadow-lg transition-all hover:scale-105"
                         >
-                            <FaGithub className="text-xl" />
+                            <div className="flex items-center space-x-2">
+                                <FaGithub className="text-xl" />
+                                <span>C V</span>
+                            </div>
                         </a>
                          <button
                             onClick={onToggleTheme}

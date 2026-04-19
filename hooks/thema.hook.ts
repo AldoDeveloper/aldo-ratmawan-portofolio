@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { IPropsLayoutDashboardContext } from "../context/ContextApp";
 
 export const useThemeHook = () => {
-    const [theme, setTheme] = useState<'light' | 'dark'>('light')
+    const [theme, setTheme] = useState<'light' | 'dark'>('dark')
+    const [profile, setProfile] = useState<any>(null);
 
     React.useEffect(() => {
         const root = window.document.documentElement;
@@ -25,10 +26,16 @@ export const useThemeHook = () => {
         }
     }
 
+    const onSetProfile = (profile: any) => {
+        setProfile(profile);
+    }
+
     const value: IPropsLayoutDashboardContext = {
         theme,
+        profile,
         isSidebarOpen: false,
         onToggleTheme,
+        onSetProfile,
         onToggleSidebar: () => { }
     }
 

@@ -1,53 +1,7 @@
+import Skeleton from "react-loading-skeleton";
 import { useFetchJson } from "../../../hooks/useFetchJson";
 import { ExperienceListResponse } from "../../../types/experience.api";
-
-interface Experience {
-    id: number;
-    position: string;
-    company_name: string;
-    start_date?: string;
-    end_date?: string;
-    employment_type?: string;
-    is_remote?: boolean;
-    is_current?: boolean;
-    description: string;
-}
-
-const experiences: Experience[] = [
-    {
-        id: 1,
-        position: 'Senior Full-Stack Developer',
-        company_name: 'Tech Company Inc.',
-        start_date: '2023-01-01',
-        end_date: '2025-01-01',
-        employment_type: 'Full-time',
-        is_remote: false,
-        is_current: true,
-        description: 'Leading development of enterprise applications, mentoring junior developers, and implementing best practices across the team.'
-    },
-    {
-        id: 2,
-        position: 'Full-Stack Developer',
-        company_name: 'Digital Agency',
-        start_date: '2021-01-01',
-        end_date: '2023-01-01',
-        employment_type: 'Contract',
-        is_remote: true,
-        is_current: false,
-        description: 'Developed multiple client projects including e-commerce platforms, CMS systems, and custom web applications.'
-    },
-    {
-        id: 3,
-        position: 'Junior Developer',
-        company_name: 'Startup XYZ',
-        start_date: '2019-01-01',
-        end_date: '2021-01-01',
-        employment_type: 'Part-time',
-        is_remote: false,
-        is_current: false,
-        description: 'Started professional career building web applications and learning modern development frameworks and methodologies.'
-    },
-];
+import { Skeletons } from "../ui/Skelton";
 
 export const ExperienceSection: React.FC = () => {
 
@@ -65,7 +19,23 @@ export const ExperienceSection: React.FC = () => {
                     </p>
                 </div>
                 <div className="max-w-4xl mx-auto space-y-8">
-                    {!error && data?.data?.map((exp, index) => (
+                    {
+                        loading && (
+                            <>
+                                <Skeletons>
+                                    <Skeleton width={"100%"} height={'8rem'} className="mb-3 rounded-lg"/>
+                                </Skeletons>
+                                  <Skeletons>
+                                    <Skeleton width={"100%"} height={'8rem'} className="mb-3 rounded-lg"/>
+                                </Skeletons>
+                                  <Skeletons>
+                                    <Skeleton width={"100%"} height={'8rem'} className="mb-3 rounded-lg"/>
+                                </Skeletons>
+                            </>
+                        )
+                    }
+
+                    {!error && data?.success && data?.data?.map((exp, index) => (
                         <div
                             key={exp.id}
                             className={`relative bg-white dark:bg-gray-950 p-8 rounded-xl shadow-lg border-l-4 border-blue-500 hover:shadow-2xl transition-all`}

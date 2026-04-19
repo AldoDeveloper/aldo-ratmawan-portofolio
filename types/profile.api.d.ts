@@ -9,7 +9,7 @@ export interface ProfileRequest {
     avatar_url?: string;
     resume_url?: string;
     location?: string;
-    is_available?: boolean;
+    is_available: boolean;
     years_of_experience?: number;
 }
 
@@ -23,10 +23,10 @@ export interface ProfileResponse {
     avatar_url?: string;
     resume_url?: string;
     location?: string;
-    is_available?: boolean;
+    is_available: boolean;
     years_of_experience?: number;
-    createdAt?: string;
-    updatedAt?: string;
+    created_at: string; // bisa diubah ke Date jika diparse
+    updated_at: string; // bisa diubah ke Date jika diparse
 }
 
 export interface ProfileListResponse { success: boolean; data: ProfileResponse[]; message?: string; }

@@ -1,9 +1,31 @@
 import React, { FormEvent, useEffect, useState } from "react"
 import { FaEnvelope } from "react-icons/fa"
-import { FaGithub, FaLinkedin } from "react-icons/fa6"
+import { FaGithub, FaGlobe, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa6"
 import { ContactFormRequest } from "../../../types/contactForm"
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { BsX } from "react-icons/bs";
+import { useFetchJson } from "../../../hooks/useFetchJson";
+import { ContactListResponse, ContactResponse } from "types/contact.api";
+import { Skeletons } from "../ui/Skelton";
+import Skeleton from "react-loading-skeleton";
+
+
+export interface Contacts {
+    type: string;
+    url?: string;
+    label?: string;
+    created_at?: string | Date;
+    updated_at?: string | Date;
+}
+
+const mapTypeContact: Record<string, React.ReactNode> = {
+    "email": <FaEnvelope className="text-blue-500 text-2xl dark:text-gray-50" />,
+    "github": <FaGithub className="text-blue-500 text-2xl dark:text-gray-50" />,
+    "linkedin": <FaLinkedin className="text-blue-500 text-2xl dark:text-gray-50" />,
+    "twitter": <FaTwitter className="text-blue-500 text-2xl dark:text-gray-50" />,
+    "instagram": <FaInstagram className="text-blue-500 text-2xl dark:text-gray-50" />,
+    "website": <FaGlobe className="text-blue-500 text-2xl dark:text-gray-50" />
+};
 
 
 export const ContactSection: React.FC = () => {
@@ -17,6 +39,8 @@ export const ContactSection: React.FC = () => {
         email: "",
         message: ""
     });
+
+    const { loading: loadingContact, error: errorContact, data } = useFetchJson<ContactListResponse>('/api/contacts');
 
     const onChangeStateForm = (key: string, value: any) => {
         setStateForm((prev) => ({ ...prev, [key]: value }))
@@ -33,7 +57,7 @@ export const ContactSection: React.FC = () => {
 
         if (!result.ok) throw new Error('create contact form failed.');
         return await result.json();
-    }
+    };
 
     const onSubmited = async (ev: FormEvent<HTMLFormElement>) => {
         ev.preventDefault();
@@ -126,33 +150,64 @@ export const ContactSection: React.FC = () => {
 
                 <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                     <div className="space-y-8">
-                        <div className="flex items-start gap-4">
-                            <div className="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg">
-                                <FaEnvelope className="text-blue-500 dark:text-gray-50 text-2xl" />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Email</h3>
-                                <p className="text-gray-600 dark:text-gray-300">aldo.ratmawan@email.com</p>
-                            </div>
-                        </div>
-                        <div className="flex items-start gap-4">
-                            <div className="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg">
-                                <FaLinkedin className="text-blue-500 text-2xl dark:text-gray-50" />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-50 mb-2">LinkedIn</h3>
-                                <a href="#" className="text-blue-500 hover:underline">linkedin.com/in/aldo-ratmawan</a>
-                            </div>
-                        </div>
-                        <div className="flex items-start gap-4">
-                            <div className="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg">
-                                <FaGithub className="text-blue-500 text-2xl dark:text-gray-50" />
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">GitHub</h3>
-                                <a href="https://github.com/AldoDeveloper" className="text-blue-500 hover:underline">github.com/AldoDeveloper</a>
-                            </div>
-                        </div>
+                        {
+                            loadingContact && (
+                                <>
+                                    <div className="flex items-center gap-4">
+                                        <Skeletons>
+                                            <Skeleton className="p-4 rounded-lg" width={60} height={60} />
+                                        </Skeletons>
+                                        <Skeletons>
+                                            <div className="space-y-2">
+                                                <Skeleton width={100} height={30} />
+                                                <Skeleton width={200} height={20} />
+                                            </div>
+                                        </Skeletons>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <Skeletons>
+                                            <Skeleton className="p-4 rounded-lg" width={60} height={60} />
+                                        </Skeletons>
+                                        <Skeletons>
+                                            <div className="space-y-2">
+                                                <Skeleton width={100} height={30} />
+                                                <Skeleton width={200} height={20} />
+                                            </div>
+                                        </Skeletons>
+                                    </div>
+                                    <div className="flex items-center gap-4">
+                                        <Skeletons>
+                                            <Skeleton className="p-4 rounded-lg" width={60} height={60} />
+                                        </Skeletons>
+                                        <Skeletons>
+                                            <div className="space-y-2">
+                                                <Skeleton width={100} height={30} />
+                                                <Skeleton width={200} height={20} />
+                                            </div>
+                                        </Skeletons>
+                                    </div>
+                                </>
+                            )
+                        }
+                        {
+                            !loadingContact && data?.success && (
+                                <>
+                                    {
+                                        data.success && data?.data?.map((contact, idx) => (
+                                            <div className="flex items-start gap-4" key={idx}>
+                                                <div className="bg-blue-100 dark:bg-blue-900 p-4 rounded-lg">
+                                                    {mapTypeContact[contact.type ?? "email"]}
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{contact.label}</h3>
+                                                    <p className="text-gray-600 text-xs dark:text-gray-300">{contact.url}</p>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }
+                                </>
+                            )
+                        }
                     </div>
                     <form className="space-y-6" onSubmit={onSubmited}>
                         <div>
