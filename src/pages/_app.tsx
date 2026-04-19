@@ -19,7 +19,7 @@ export default function App({ Component, pageProps }: AppLayout) {
     return (
       <ErrorBoundary>
          <LayoutCv>
-           {Component.getLayoutIndex(<Component {...pageProps} />)}
+           { Component.getLayoutIndex(<Component {...pageProps} />) }
          </LayoutCv>
       </ErrorBoundary>
     )
