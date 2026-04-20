@@ -12,7 +12,7 @@ export const Navbar: React.FC<{ activeSection: string; profile: any, scrollToSec
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
                 <div className="flex justify-between items-center">
                     <h1 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-yellow-500 to-blue-500 bg-clip-text text-transparent">
-                        Aldo Ratmawan
+                        {profile?.full_name}
                     </h1>
                     <div className="hidden md:flex space-x-8">
                         {['Home', 'Projects', 'Services', 'Skills', 'Experience', 'Contact'].map((item) => (
