@@ -64,7 +64,8 @@ export const ProjectSection: React.FC = () => {
                                 <div className="flex gap-3 pt-4">
                                     {project.repo_url && (
                                         <a
-                                            href={project.repo_url}
+                                            target="_blank"
+                                            href={project.repo_url ?? "#"}
                                             className="flex-1 bg-gray-900 dark:bg-gray-700 text-white text-center py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors"
                                         >
                                             <FaGithub className="inline mr-2" />
@@ -73,7 +74,8 @@ export const ProjectSection: React.FC = () => {
                                     )}
                                     {project.demo_url && (
                                         <a
-                                            href={project.demo_url}
+                                            target="_blank"
+                                            href={project.demo_url ?? "#"}
                                             className="flex-1 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-center py-2 rounded-lg hover:shadow-lg transition-all"
                                         >
                                             Live Demo
